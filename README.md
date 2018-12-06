@@ -8,4 +8,8 @@
 1. `LeaderF`
 2. python
 
+## LeaderfDoc
+![LeaderfDoc command](screenshot/leaderfdoc.png)
 
+## LeaderfNote
+![LeaderfNote command](screenshot/leaderfnote.png)
