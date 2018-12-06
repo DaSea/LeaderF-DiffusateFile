@@ -1,0 +1,128 @@
+diffusatefile.txt*    Search file from diffusate dir
+
+Author:         DaSea(dhf0214@126.com)
+Licence:        MIT licence
+Version:        0.1.0
+
+==============================================================================
+Contents                                       *diffusatefile*  *diffusatefile-contents*
+
+         1. Intro ........................... |diffusatefile-intro|
+         2. Requirements .................... |diffusatefile-requirements|
+         3. Usage ........................... |diffusatefile-usage|
+              Commands ...................... |diffusatefile-commands|
+              Key mappings .................. |diffusatefile-mappings|
+         4. Configuration ................... |diffusatefile-configuration|
+              Highlight colours ............. |diffusatefile-highlighting|
+         5. Functions ....................... |diffusatefile-functions|
+         6. Troubleshooting & Known issues .. |diffusatefile-issues|
+         7. History ......................... |diffusatefile-history|
+
+==============================================================================
+1. Intro                                                     *diffusatefile-intro*
+
+Search file from diffusate dir.
+
+==============================================================================
+2. Requirements                                       *diffusatefile-requirements*
+
+The following requirements have to be met in order to be able to use
+diffusatefile.vim:
+
+  - Vim 8.0 or higher or neovim
+  - Python3
+
+==============================================================================
+3. Usage                                                     *diffusatefile-usage*
+
+Open a docment from vim ~
+
+Use `LeaderF` to list your docment, open the Vim. Type |:LeadefDoc| ,
+    select one item, and enter to open it!
+
+Open a note from vim ~
+Use `LeaderF` to list your notes, open the Vim. Type |:LeadefNote| ,
+    select one item, and enter to open it!
+
+------------------------------------------------------------------------------
+COMMANDS                                                  *diffusatefile-commands*
+
+:LeaderfDoc
+    search your docment use `LeaderF`, and open it, example:
+    :LeadefDoc
+
+:LeaderfNote
+    search your note use `LeaderF`, and open it, example:
+    :LeaderfNote
+
+------------------------------------------------------------------------------
+KEY MAPPINGS                                              *diffusatefile-mappings*
+
+Default key mappings:
+    None, you can define it, example:
+    nnormap <Leader>fd :call LeaderfDoc<CR>
+    nnormap <Leader>fn :call LeaderfNote<CR>
+
+==============================================================================
+4. Configuration                                     *diffusatefile-configuration*
+
+                                                   *g:leaderf_diffusate_doc_root*
+g:leaderf_diffusate_doc_root
+Default: ''
+
+The docment path of diffusatefile, you can set:
+    let g:leaderf_diffusate_doc_root = "/media/entertainment/Doc"
+
+you can set many path, split with `;` , example:
+    let g:leaderf_diffusate_doc_root = "path1;path2"
+
+                                                *g:leaderf_diffusate_doc_filter*
+g:leaderf_diffusate_doc_filter~
+    Default: "docsets;*.doc,*.pdf,*.txt,*.chm,*.md"
+
+    the pattern is: "(dir ignore);(file include)"
+
+                                                *g:leaderf_diffusate_notes_root*
+g:leaderf_diffusate_notes_root
+Default: ''
+
+The notes path of diffusatefile, you can set:
+    let g:leaderf_diffusate_notes_root='/media/work/Self/01_mywiki/dasea.github.io/source'
+
+                                                *g:leaderf_diffusate_notes_filter*
+g:leaderf_diffusate_notes_filter~
+    Default: "png,about,categories,tags;*.md"
+
+    the pattern is: "(dir ignore);(file include)"
+
+                                                *g:leaderf_diffusate_exec_map*
+g:leaderf_diffusate_notes_filter~
+    The app with open file, Default:
+    if(has("win32") || has("win64") || has("win95") || has("win16"))
+        let g:leaderf_diffusate_exec_map = {
+                    \ 'pdf': 'foxit.exe',
+                    \ 'doc': ''
+                    \}
+    else
+        let g:leaderf_diffusate_exec_map = {
+                    \ 'pdf': 'qpdfview --unique',
+                    \ 'doc': 'wps',
+                    \ 'chm': 'kchmviewer'
+                    \}
+    endif
+
+------------------------------------------------------------------------------
+HIGHLIGHT COLOURS                                     *diffusatefile-highlighting*
+TODO
+==============================================================================
+5. Functions                                             *diffusatefile-functions*
+
+==============================================================================
+6. Troubleshooting & Known issues                           *diffusatefile-issues*
+
+
+==============================================================================
+7. History                                                 *diffusatefile-history*
+
+==============================================================================
+ vim: tw=78 ts=8 sw=4 sts=4 et ft=help
